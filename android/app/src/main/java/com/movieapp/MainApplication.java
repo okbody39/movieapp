@@ -13,6 +13,9 @@ import com.reactnativenavigation.NavigationApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
+import com.airbnb.android.react.maps.MapsPackage;
+import com.mmazzarolo.beaconsandroid.BeaconsAndroidPackage;
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -52,7 +55,10 @@ public class MainApplication extends NavigationApplication {
     return Arrays.<ReactPackage>asList(
 		new VectorIconsPackage(),
 		new LinearGradientPackage(),
-		new ReactNativeConfigPackage()
+		new MapsPackage(),
+		new BeaconsAndroidPackage(),
+		new ReactNativeConfigPackage(),
+		new ReactNativePushNotificationPackage()
     );
   }
 }

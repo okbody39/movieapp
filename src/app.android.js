@@ -23,13 +23,26 @@ const navigatorStyle = {
 
 Navigation.startSingleScreenApp({
 	screen: {
-		screen: 'movieapp.Movies',
-		title: 'Movies',
+		screen: 'movieapp.Items',
+		title: '나의 행복지수',
 		navigatorStyle
 	},
 	drawer: {
 		left: {
-			screen: 'movieapp.Drawer'
+			screen: 'movieapp.NewDrawer'
 		}
 	}
 });
+
+// Navigation.startSingleScreenApp({
+// 	screen: {
+// 		screen: 'movieapp.Movies',
+// 		title: 'Movies',
+// 		navigatorStyle
+// 	},
+// 	drawer: {
+// 		left: {
+// 			screen: 'movieapp.Drawer'
+// 		}
+// 	}
+// });
