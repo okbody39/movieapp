@@ -1,6 +1,7 @@
 package com.movieapp;
 
 // import com.facebook.react.ReactActivity;
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.mmazzarolo.beaconsandroid.BeaconsAndroidPackage;
 import com.reactnativenavigation.controllers.SplashActivity;
 

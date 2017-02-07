@@ -28,6 +28,7 @@ class Items extends Component {
 		};
 
 		this._viewItem = this._viewItem.bind(this);
+		this._viewHappyDetail = this._viewHappyDetail.bind(this);
 		this._onRefresh = this._onRefresh.bind(this);
 		this.props.navigator.setOnNavigatorEvent(this._onNavigatorEvent.bind(this));
 	}
@@ -71,6 +72,17 @@ class Items extends Component {
 			}
 		});
 	}
+
+	_viewHappyDetail(happyKey) {
+		this.props.navigator.showModal({
+			screen: 'movieapp.HappyDetail',
+			passProps: {
+				happyKey
+			}
+		});
+	}
+
+
 
 	_onRefresh() {
 
@@ -116,7 +128,7 @@ class Items extends Component {
 					showsPagination={false}
 					height={220}>
 					{happyIndex.map(info => (
-						<CardOne key={info.key} info={info} viewItem={this._viewItem} />
+						<CardOne key={info.key} info={info} viewItem={this._viewHappyDetail} />
 					))}
 				</Swiper>
 				<View>

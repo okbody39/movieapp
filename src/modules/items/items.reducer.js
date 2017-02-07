@@ -18,6 +18,13 @@ export default function (state = initialState.items, action) {
 			};
 
 
+		case types.RETRIEVE_HAPPYDETAIL_SUCCESS:
+			return {
+				...state,
+				happyDetail: action.happyDetail
+			};
+
+
 		case types.RETRIEVE_CURATED_ITEMS_SUCCESS:
 			return {
 				...state,

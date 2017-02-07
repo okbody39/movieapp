@@ -95,8 +95,8 @@ export function retrieveHappyIndexSuccess(res) {
 
 export function retrieveHappyIndex() {
 	return function (dispatch) {
-		var userId = 'test';
-		return axios.get(`${PLATEFORM_URL}/ws/happyindex/all/${userId}`)
+		var userId = 'tmkwak';
+		return axios.get(`${PLATEFORM_URL}/v1/hcpr/indexnumber/all/${userId}`)
 			.then(res => {
 
 				if(res.data.response.code != '200') {
@@ -108,6 +108,34 @@ export function retrieveHappyIndex() {
 				// console.log('==================================');
 
 				dispatch(retrieveHappyIndexSuccess(res));
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	};
+}
+
+// HappyIndex
+export function retrieveHappyDetailSuccess(res) {
+	return {
+		type: types.RETRIEVE_HAPPYDETAIL_SUCCESS,
+		happyDetail: res.data.response.detail,
+	};
+}
+
+export function retrieveHappyDetail(userId, happyKey) {
+	return function (dispatch) {
+		// var userId = 'tmkwak';
+		// var happyKey = 'tmkwak';
+
+		return axios.get(`${PLATEFORM_URL}/v1/hcpr/indexnumber/detail/${userId}/${happyKey}`)
+			.then(res => {
+
+				if(res.data.response.code != '200') {
+					console.log('error');
+				}
+
+				dispatch(retrieveHappyDetailSuccess(res));
 			})
 			.catch(error => {
 				console.log(error);

@@ -3,6 +3,7 @@ export default {
 		login: {},
 		userInfo: {},
 		happyIndex: [],
+		happyDetail: {},
 		curatedItems: [],
 		nearItems: [],
 		list: [],

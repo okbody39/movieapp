@@ -6,6 +6,7 @@ import Items from './modules/items/Items';
 import NearItems from './modules/items/NearItems';
 import ItemsList from './modules/items/ItemsList';
 import Item from './modules/items/Item';
+import HappyDetail from './modules/items/HappyDetail';
 import ItemSearch from './modules/items/ItemSearch';
 
 // import Drawer from './modules/_global/Drawer';
@@ -17,6 +18,7 @@ import ItemSearch from './modules/items/ItemSearch';
 export function registerScreens(store, Provider) {
 
 	Navigation.registerComponent('movieapp.Item', () => Item, store, Provider);
+	Navigation.registerComponent('movieapp.HappyDetail', () => HappyDetail, store, Provider);
 	Navigation.registerComponent('movieapp.Items', () => Items, store, Provider);
 	Navigation.registerComponent('movieapp.NearItems', () => NearItems, store, Provider);
 	Navigation.registerComponent('movieapp.ItemsList', () => ItemsList, store, Provider);
