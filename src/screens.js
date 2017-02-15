@@ -9,6 +9,8 @@ import Item from './modules/items/Item';
 import HappyDetail from './modules/items/HappyDetail';
 import ItemSearch from './modules/items/ItemSearch';
 
+import CardPoll from './modules/items/CardPoll';
+
 // import Drawer from './modules/_global/Drawer';
 // import Movies from './modules/movies/Movies';
 // import MoviesList from './modules/movies/MoviesList';
@@ -25,6 +27,7 @@ export function registerScreens(store, Provider) {
 	Navigation.registerComponent('movieapp.NewDrawer', () => NewDrawer, store, Provider);
 	Navigation.registerComponent('movieapp.ItemSearch', () => ItemSearch, store, Provider);
 
+	Navigation.registerComponent('movieapp.CardPoll', () => CardPoll, store, Provider);
 
 	// Navigation.registerComponent('movieapp.Movie', () => Movie, store, Provider);
 	// Navigation.registerComponent('movieapp.Movies', () => Movies, store, Provider);

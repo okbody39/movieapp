@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import * as types from '../../constants/actionTypes';
-import { OPENMARKET_URL, OPENMARKET_API_KEY, PLATEFORM_URL, TMDB_API_KEY } from '../../constants/api';
+import { OPENMARKET_URL, OPENMARKET_API_KEY, PLATEFORM_URL, TMDB_API_KEY, TEST_USERID } from '../../constants/api';
 
 // Login
 export function retrieveLoginSuccess(res) {
@@ -95,7 +95,7 @@ export function retrieveHappyIndexSuccess(res) {
 
 export function retrieveHappyIndex() {
 	return function (dispatch) {
-		var userId = 'tmkwak';
+		var userId = `${TEST_USERID}`;
 		return axios.get(`${PLATEFORM_URL}/v1/hcpr/indexnumber/all/${userId}`)
 			.then(res => {
 
@@ -125,10 +125,9 @@ export function retrieveHappyDetailSuccess(res) {
 
 export function retrieveHappyDetail(userId, happyKey) {
 	return function (dispatch) {
-		// var userId = 'tmkwak';
-		// var happyKey = 'tmkwak';
+		userId = `${TEST_USERID}`;
 
-		return axios.get(`${PLATEFORM_URL}/v1/hcpr/indexnumber/detail/${userId}/${happyKey}`)
+		return axios.get(`${PLATEFORM_URL}/v1/hcpr/indexnumber/history/${userId}/${happyKey}`)
 			.then(res => {
 
 				if(res.data.response.code != '200') {

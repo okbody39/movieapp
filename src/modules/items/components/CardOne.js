@@ -62,7 +62,7 @@ const CardOne = ({ info, viewItem }) => (
 				<Text style={styles.cardDescription} numberOfLines={3}>
 					{info.description}
 				</Text>
-				<TouchableOpacity activeOpacity={0.9} onPress={viewItem.bind(this, info.key)}>
+				<TouchableOpacity activeOpacity={0.9} onPress={viewItem.bind(this, info.key, info)}>
 					<View style={styles.viewButton}>
 						<Text style={styles.viewButtonText}>자세히 보기</Text>
 					</View>

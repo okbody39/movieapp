@@ -20,9 +20,12 @@ class NewDrawer extends Component {
 	constructor(props) {
 		super(props);
 
+		this._beforeDetectedBeacon = null;
+
 		this._goToItems = this._goToItems.bind(this);
 		this._goToNearItems = this._goToNearItems.bind(this);
 		this._openSearch = this._openSearch.bind(this);
+		this._handleNotificationAction = this._handleNotificationAction.bind(this);
 	}
 
 	_openSearch() {
@@ -44,7 +47,8 @@ class NewDrawer extends Component {
 	_goToNearItems() {
 		this._toggleDrawer();
 
-		this.props.navigator.showModal({
+		//this.props.navigator.showModal({
+		this.props.navigator.push({
 			screen: 'movieapp.NearItems',
 			title: '주변 아이템'
 		});
@@ -87,7 +91,13 @@ class NewDrawer extends Component {
 			// });
 			let dist = b.distance.toFixed(3);
 
+			if(this._beforeDetectedBeacon == b.uuid) {
+				return;
+			}
+
 			if(dist < 1) {
+
+				this._beforeDetectedBeacon = b.uuid;
 				// ToastAndroid.show(b.uuid+'-'+dist, ToastAndroid.SHORT);
 
 				axios.get(`${PLATEFORM_URL}/ws/mdinfo/${b.uuid}`)
@@ -135,6 +145,17 @@ class NewDrawer extends Component {
 		});
 	}
 
+	_handleNotificationAction(action) {
+		console.log ('==== Notification action received: ' + action.dataJSON);
+		const info = JSON.parse(action.dataJSON);
+		if (info.action == '상점방문') {
+			this.props.navigator.push({
+				screen: 'movieapp.NearItems',
+				title: '주변 아이템'
+			});
+		}
+	}
+
 	componentWillMount() {
 		Beacons.detectIBeacons();
 
@@ -142,18 +163,12 @@ class NewDrawer extends Component {
 			Beacons.startRangingBeaconsInRegion('LATTETALKREGION1');
 
 			DeviceEventEmitter.addListener('beaconsDidRange', this._beaconsDidRange);
+
 		} catch (err) {
 		}
 
-		DeviceEventEmitter.addListener('notificationActionReceived', function(action){
-			console.log ('Notification action received: ' + action);
-			const info = JSON.parse(action.dataJSON);
-			if (info.action == '상점방문') {
-				// Do work pertaining to Accept action here
-				alert('상점정보');
-			}
-			// Add all the required actions handlers
-		});
+		PushNotification.registerNotificationActions(['상점방문']);
+		DeviceEventEmitter.addListener('notificationActionReceived', this._handleNotificationAction);
 	}
 
 	render() {

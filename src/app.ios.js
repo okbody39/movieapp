@@ -32,19 +32,19 @@ class App extends Component {
 		Navigation.startTabBasedApp({
 			tabs: [
 				{
-					label: 'Movies',
-					screen: 'movieapp.Movies',
+					label: '행복지수',
+					screen: 'movieapp.Items',
 					icon: iconsMap['ios-film-outline'],
 					selectedIcon: iconsMap['ios-film'],
-					title: 'Movies',
+					title: '행복지수',
 					navigatorStyle
 				},
 				{
-					label: 'TV Shows',
-					screen: 'movieapp.Movies',
+					label: '내 주변',
+					screen: 'movieapp.NearItems',
 					icon: iconsMap['ios-desktop-outline'],
 					selectedIcon: iconsMap['ios-desktop'],
-					title: 'Movies',
+					title: '내주변 아이템',
 					navigatorStyle
 				}
 			],

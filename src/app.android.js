@@ -25,12 +25,19 @@ Navigation.startSingleScreenApp({
 	screen: {
 		screen: 'movieapp.Items',
 		title: '나의 행복지수',
+		//id: 'sideMenu',
+		navigatorButtons: {
+			leftButtons: [{
+				id: 'sideMenu',
+			}],
+			rightButtons: [],
+		},
 		navigatorStyle
 	},
 	drawer: {
 		left: {
 			screen: 'movieapp.NewDrawer'
-		}
+		},
 	}
 });
 

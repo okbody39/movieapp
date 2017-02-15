@@ -132,6 +132,7 @@ class NearItems extends Component {
 								key={marker.productCode}
 								title={marker.productName}
 								description={marker.name}
+								onCalloutPress={() => {this._viewItem(marker.productCode)}}
 							/>
 						))}
 					</MapView>

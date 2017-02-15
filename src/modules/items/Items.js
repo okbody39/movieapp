@@ -73,11 +73,13 @@ class Items extends Component {
 		});
 	}
 
-	_viewHappyDetail(happyKey) {
+	_viewHappyDetail(happyKey, happyInfo) {
 		this.props.navigator.showModal({
+			title: happyInfo.name,
 			screen: 'movieapp.HappyDetail',
 			passProps: {
-				happyKey
+				happyKey,
+				happyInfo
 			}
 		});
 	}

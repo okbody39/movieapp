@@ -3,12 +3,13 @@ import {
 	Text,
 	Image,
 	Dimensions,
+	WebView,
 	View
 } from 'react-native';
 import _ from 'lodash';
 import moment from 'moment';
 import numeral from 'numeral';
-import FitImage from 'react-native-fit-image';
+// import FitImage from 'react-native-fit-image';
 
 import styles from './styles/Info';
 
@@ -19,25 +20,31 @@ const Info = ({ info }) => {
 
 	// console.log(info.detail[0]);info.detail[0]
 
-	// const width = Dimensions.get('window').width-32;
-	// const height = Dimensions.get('window').height;
+	const width = Dimensions.get('window').width;
+	const height = Dimensions.get('window').height;
 
+	var concatHTML = "<img src='"+info.detail[0]+"' style='width:"+(width-50)+"px'>";
 
 	return (
-		<View style={styles.container}>
-			<FitImage
-				style={styles.detail}
-				originalWidth={350}
-				originalHeight={1996}
-				source={{ uri: info.detail[0] }}
+		<View style={[styles.container,{width: width, height: height}]} >
+			<WebView
+				//style={{
+					//flex: 1,
+				//	height: height
+				//}}
+				source={{ html: concatHTML, baseUrl: 'web/' }}
+				//source={{uri: 'http://www.naver.com'}}
+				//injectedJavaScript="document.body.scrollHeight;"
+				//onNavigationStateChange={this._updateWebViewHeight.bind(this)}
+				// javaScriptEnabled={true}
 			/>
-			{/*<Image source={{ uri: info.detail[0] }} resizeMode='cover' style={[styles.detail,{overflow: 'visible'}]} />*/}
 		</View>
 	);
 };
 
 Info.propTypes = {
-	info: PropTypes.object.isRequired
+	info: PropTypes.object.isRequired,
+	//getTabHeight: PropTypes.func.isRequired
 };
 
 export default Info;

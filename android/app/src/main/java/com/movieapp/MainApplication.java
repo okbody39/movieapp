@@ -5,13 +5,12 @@ import android.util.Log;
 import android.support.annotation.NonNull;
 
 import com.facebook.react.ReactApplication;
-import com.horcrux.svg.RNSvgPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.reactnativenavigation.NavigationApplication;
-import com.oblador.vectoricons.VectorIconsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.airbnb.android.react.maps.MapsPackage;
@@ -39,7 +38,6 @@ public class MainApplication extends NavigationApplication {
 		new MapsPackage(),
 		new BeaconsAndroidPackage(),
 		new ReactNativeConfigPackage(),
-		new RNSvgPackage(),
 		new ReactNativePushNotificationPackage()
 
     );

@@ -10,23 +10,25 @@ import QRCode from 'react-native-qrcode';
 import styles from './styles/Barcode';
 import { TMDB_IMG_URL } from '../../../constants/api';
 
-const Barcode = ({ info, getTabHeight }) => {
-	let computedHeight = 200;
+const Barcode = ({ info }) => {
 
 	return (
-		<View style={styles.container} onLayout={getTabHeight.bind(this, 'casts', computedHeight)}>
-			<QRCode
-				value='http://facebook.github.io/react-native/'
-				size={200}
-				bgColor='#A5C419'
-				fgColor='white'/>
+		<View style={styles.container}>
+			<View style={{height: 200, width: 200, backgroundColor: 'white', justifyContent: 'center',
+		alignItems: 'center',}}>
+				<QRCode
+					value='http://facebook.github.io/react-native/'
+					size={180}
+					bgColor='black'
+					fgColor='white'/>
+			</View>
 		</View>
 	);
 };
 
 Barcode.propTypes = {
 	info: PropTypes.object.isRequired,
-	getTabHeight: PropTypes.func.isRequired
+	//getTabHeight: PropTypes.func.isRequired
 };
 
 export default Barcode;
